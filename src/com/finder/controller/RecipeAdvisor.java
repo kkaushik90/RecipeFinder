@@ -20,6 +20,9 @@ public class RecipeAdvisor {
 
 		recipesFound = getAllPossibleRecipes(availableRecipes);
 
+		//TODO find best recipe choice based on use by date
+		if (recipesFound != null)
+			return recipesFound.get(0);
 		return null;
 	}
 
