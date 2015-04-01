@@ -1,0 +1,14 @@
+@CHARSET "ISO-8859-1";
+
+* {
+	font-family: helvetica, arial;
+}
+
+textarea {
+	height: 200px;
+	width: 90%;
+}
+
+button {
+	width: 100px;
+}
