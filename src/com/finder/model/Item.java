@@ -3,6 +3,7 @@ package com.finder.model;
 public class Item {
 	
 	private String name;
+	private int amount;
 	private Unit unitOfMeasurement;
 
 	public Item(String name, Unit unitOfMeasurement) {
@@ -13,6 +14,10 @@ public class Item {
 
 	public String getName() {
 		return name;
+	}
+	
+	public int getAmount() {
+		return amount;
 	}
 
 	public Unit getUnitOfMeasurement() {

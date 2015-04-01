@@ -5,9 +5,9 @@ import java.util.List;
 public class Recipe {
 	
 	private String name;
-	private List<FridgeItem> ingredients;
+	private List<Item> ingredients;
 
-	public Recipe(String name, List<FridgeItem> ingredients) {
+	public Recipe(String name, List<Item> ingredients) {
 		this.name = name;
 		this.ingredients = ingredients;
 	}
@@ -16,7 +16,7 @@ public class Recipe {
 		return name;
 	}
 
-	public List<FridgeItem> getIngredients() {
+	public List<Item> getIngredients() {
 		return ingredients;
 	}
 
