@@ -4,13 +4,13 @@ import java.util.Calendar;
 
 public class FridgeItem extends Item implements Comparable<FridgeItem> {
 
-//	private int amount;
+	// private int amount;
 	private Calendar useBy;
 
 	public FridgeItem(String name, int amount, Unit unitOfMeasurement,
 			Calendar useBy) {
-		super(name, unitOfMeasurement);
-//		this.amount = amount;
+		super(name, amount, unitOfMeasurement);
+		// this.amount = amount;
 		this.useBy = useBy;
 	}
 

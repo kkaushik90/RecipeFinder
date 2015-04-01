@@ -1,8 +1,5 @@
 package com.finder.repositories;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,8 +8,7 @@ import com.finder.model.FridgeItem;
 
 public class FridgeRepository {
 
-	private List<FridgeItem> itemsInFridge;
-	private Map<String, FridgeItem> itemsInFridgeMap;
+	private Map<String, FridgeItem> itemsInFridge;
 	private static FridgeRepository fridgeRepository;
 
 	public static FridgeRepository getInstance() {
@@ -22,43 +18,42 @@ public class FridgeRepository {
 	}
 
 	private FridgeRepository() {
-		itemsInFridgeMap = new HashMap<String, FridgeItem>();
-		itemsInFridge = new ArrayList<FridgeItem>();
-	}
-
-	public List<FridgeItem> getItemsInFridge() {
-		return itemsInFridge;
+		itemsInFridge = new HashMap<String, FridgeItem>();
 	}
 
 	public FridgeItem getItemByName(String name) {
-		return itemsInFridgeMap.get(name);
+		return itemsInFridge.get(name);
 	}
 
-	public List<FridgeItem> getItemsInFridgeWithoutOutOfDateSortedByDate() {
-		List<FridgeItem> sortedList = itemsInFridge;
-		Calendar today = Calendar.getInstance();
-		for (FridgeItem item : sortedList) {
-			if (item.getUseBy().before(today)) {
-				sortedList.remove(item);
-			}
-		}
-		Collections.sort(sortedList);
-		return sortedList;
-	}
-
-	public void setItemsInFridge(List<FridgeItem> itemsInFridge) {
-		if (itemsInFridge == null || itemsInFridge.size() <= 0)
+	public void setItemsInFridge(List<FridgeItem> itemsInFridgeList) {
+		if (itemsInFridgeList == null || itemsInFridgeList.size() <= 0)
 			return;
-		this.itemsInFridge = itemsInFridge;
-		for (FridgeItem item : itemsInFridge)
-			itemsInFridgeMap.put(item.getName(), item);
+		for (FridgeItem item : itemsInFridgeList)
+			itemsInFridge.put(item.getName(), item);
 	}
 
 	public void addFridgeItem(FridgeItem item) {
+		if (item == null)
+			throw new RuntimeException("Item cannot be null.");
+		else if (itemsInFridge.keySet().contains(item.getName())) {
+			itemsInFridge.get(item.getName()).addAmount(item.getAmount());
+		}
+
 		if (item != null) {
-			itemsInFridge.add(item);
-			itemsInFridgeMap.put(item.getName(), item);
+			itemsInFridge.put(item.getName(), item);
 		}
 	}
+
+	// public List<FridgeItem> getItemsInFridgeWithoutOutOfDateSortedByDate() {
+	// List<FridgeItem> sortedList = itemsInFridge;
+	// Calendar today = Calendar.getInstance();
+	// for (FridgeItem item : sortedList) {
+	// if (item.getUseBy().before(today)) {
+	// sortedList.remove(item);
+	// }
+	// }
+	// Collections.sort(sortedList);
+	// return sortedList;
+	// }
 
 }
