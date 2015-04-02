@@ -27,13 +27,13 @@ public class FormDataParser {
 				JSONObject recipeJsonObject = recipeJsonArr.getJSONObject(i);
 				JSONArray ingredientsJsonArr = recipeJsonObject
 						.getJSONArray("ingredients");
-				for (int j = 0; j < ingredientsJsonArr.length(); i++) {
+				for (int j = 0; j < ingredientsJsonArr.length(); j++) {
 					ingredients.add(new Item(ingredientsJsonArr
 							.getJSONObject(j).getString("item"), Integer
 							.parseInt(ingredientsJsonArr.getJSONObject(j)
 									.getString("amount")), Unit
 							.valueOf(ingredientsJsonArr.getJSONObject(j)
-									.getString("unit".toUpperCase()))));
+									.getString("unit").toUpperCase())));
 				}
 				recipes.add(new Recipe(recipeJsonObject.getString("name"),
 						ingredients));
@@ -49,6 +49,7 @@ public class FormDataParser {
 		List<FridgeItem> fridgeItems = new ArrayList<>();
 		String csvLines[] = formParameterCsv.split("\n");
 		for (String line : csvLines) {
+			System.out.println("line: " + line);
 			if (line.trim().length() < 3)
 				break;
 			String csvObjectStr[] = line.split(",");
@@ -73,7 +74,6 @@ public class FormDataParser {
 		try {
 			cal.setTime(sdf.parse(dateStr));
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return cal;

@@ -16,30 +16,47 @@
 		id='finder-form'>
 		<label>Fridge items csv</label><br />
 		<textarea name="fridge" id="fridge">
-bread,10,slices,25/12/2014
-cheese,10,slices,25/12/2014
-butter,250,grams,25/12/2014
-peanut butter,250,grams,2/12/2014
-mixed salad,150,grams,26/12/2013
+bread,10,slices,25/12/2015
+cheese,10,slices,25/12/2015
+butter,250,grams,25/12/2015
+peanut butter,250,grams,2/12/2015
+mixed salad,150,grams,26/12/2014
 		</textarea>
 		<br /> <br /> <label>Recipes json</label><br />
 		<textarea name="recipes" id="recipes">
 [
-&nbsp;&nbsp;{
-&nbsp;&nbsp;&nbsp;&nbsp;"name": "grilled cheese on toast", 
-&nbsp;&nbsp;&nbsp;&nbsp;"ingredients": [
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ "item":"bread", "amount":"2", "unit":"slices"}, 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ "item":"cheese", "amount":"2", "unit":"slices"}
-&nbsp;&nbsp;&nbsp;&nbsp;]
-&nbsp;&nbsp;},
-&nbsp;&nbsp;{
-&nbsp;&nbsp;&nbsp;&nbsp;"name": "salad sandwich",
-&nbsp;&nbsp;&nbsp;&nbsp;"ingredients": [
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ "item":"bread", "amount":"2", "unit":"slices"},
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ "item":"mixed salad", "amount":"100", "unit":"grams"}
-&nbsp;&nbsp;&nbsp;&nbsp;]
-&nbsp;&nbsp;}
-]</textarea>
+    {
+        "name": "grilled cheese on toast",
+        "ingredients": [
+            {
+                "item": "bread",
+                "amount": "2",
+                "unit": "slices"
+            },
+            {
+                "item": "cheese",
+                "amount": "2",
+                "unit": "slices"
+            }
+        ]
+    },
+    {
+        "name": "salad sandwich",
+        "ingredients": [
+            {
+                "item": "bread",
+                "amount": "2",
+                "unit": "slices"
+            },
+            {
+                "item": "mixed salad",
+                "amount": "100",
+                "unit": "grams"
+            }
+        ]
+    }
+]
+</textarea>
 		<br /> <br />
 		<button id="register-button" type="submit" name="submit"
 			value="Submit">Find</button>
